@@ -1,0 +1,7 @@
+# Only upload the public website files.
+*
+!index.html
+!style.css
+!script.js
+!img/
+!img/**

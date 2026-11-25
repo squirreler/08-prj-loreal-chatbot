@@ -1,5 +1,19 @@
 # Project 8: L'Oréal Chatbot
 
+## Live deployment
+
+GitHub Pages: https://squirreler.github.io/08-prj-loreal-chatbot/
+
+GitHub Pages publishes the `main` branch. Commit and push website changes to update this link.
+
+### Cloudflare deployment
+
+https://loreal-chatbot-project-08.dbbemailme.workers.dev
+
+To publish your latest changes to this same URL, run `bunx wrangler deploy` from this project's folder. If needed, run `bunx wrangler login` first. Only the website files allowed by `.assetsignore` are uploaded.
+
+This deployment currently contains the starter project; the AI integration still needs to be completed.
+
 L’Oréal is exploring the power of AI, and your job is to showcase what's possible. Your task is to build a chatbot that helps users discover and understand L’Oréal’s extensive range of products—makeup, skincare, haircare, and fragrances—as well as provide personalized routines and recommendations.
 
 ## 🚀 Launch via GitHub Codespaces
