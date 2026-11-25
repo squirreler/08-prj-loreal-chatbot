@@ -25,6 +25,8 @@ export default {
     const system = "You are L’Oréal’s beauty product advisor. Answer only about L’Oréal brands, products, beauty routines and recommendations (skincare, haircare, makeup and fragrance). Politely decline unrelated requests and redirect to L’Oréal beauty advice. Do not invent product facts. Give clear, concise answers.";
     const body = {
       model: env.INFERENCE_MODEL || "gpt-4.1",
+      reasoning_effort: "low",
+      max_tokens: 2500,
       messages: [{ role: "system", content: system }, ...input.messages],
     };
     try {
@@ -37,7 +39,8 @@ export default {
       if (!response.ok) return json({ error: "The inference server is unavailable. Please try again later." }, 502);
       const data = await response.json();
       if (!data.choices?.[0]?.message?.content) return json({ error: "The server returned an empty response. Please try again." }, 502);
-      return json(data);
+      // Return the answer only, keeping internal reasoning on the server.
+      return json({ choices: [{ message: { role: "assistant", content: data.choices[0].message.content } }] });
     } catch {
       return json({ error: "Could not reach the inference server. Please try again later." }, 502);
     }

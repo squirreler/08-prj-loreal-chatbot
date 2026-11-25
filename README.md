@@ -29,8 +29,8 @@ Enjoy building your L’Oréal beauty assistant! 💄
 
 ## Inference configuration
 
-The browser calls this project's Cloudflare Worker at `/api/chat`. The Worker uses the existing `OPENAI_API_KEY` secret as a bearer credential for the custom inference server; it is not an OpenAI-issued key. Set `INFERENCE_URL` to the full Chat Completions endpoint and `INFERENCE_MODEL` to the server's model name using Cloudflare Worker settings. No inference endpoint is assumed while the server is being changed.
+The browser calls this project's Cloudflare Worker at `/api/chat`. The Worker uses the existing `OPENAI_API_KEY` secret as a bearer credential for the custom inference server; it is not an OpenAI-issued key. Set `INFERENCE_URL` to the full Chat Completions endpoint and `INFERENCE_MODEL` to the server's model name using Cloudflare Worker settings. The configured endpoint is `https://llm-api.danielnotes.stream/v1/chat/completions` with model `inkling2-mini`, matching the local Pi configuration. The credential is stored as a Cloudflare Worker secret.
 
 Keep local `.env` files untracked. The existing `.assetsignore` allowlist excludes all credentials and Worker source from static uploads. Never put a credential in frontend JavaScript.
 
-Live inference and response relevance still need verification when the server is ready. The reflection rubric is present in `PROJECT-INFO.md`, but the actual reflection questions were not included.
+Live inference and refusal of unrelated questions have been verified. The reflection rubric is present in `PROJECT-INFO.md`, but the actual reflection questions were not included.
